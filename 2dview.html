@@ -21,7 +21,9 @@ require([
   "dojo/domReady!"
 ], function(Map, MapView){
   var map = new Map({
-    basemap: "osm"
+    /*-- basemap types: streets, streets-vector, topo-vector
+    more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
+    basemap: "topo-vector"
   });
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene div created in step 5

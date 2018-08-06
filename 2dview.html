@@ -30,11 +30,12 @@ require([
           visible: false
         });
   
+  map.add(bondlayer);
+  
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
     more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
     basemap: "topo-vector"
-    layers: [bondlayer]
   });
   
   var view = new MapView({

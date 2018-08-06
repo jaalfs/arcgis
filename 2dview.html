@@ -18,13 +18,25 @@
 require([
   "esri/Map",
   "esri/views/MapView",
+  "esri/layers/TileLayer",  // Require the TileLayer module
   "dojo/domReady!"
-], function(Map, MapView){
+], function(Map, MapView, TileLayer){
+  
+  // Create 2017 Bond Layer
+  var bondLayer = new TileLayer({
+          url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Points_2017/FeatureServer",
+          // This property can be used to uniquely identify the layer
+          id: "bondsprojects",
+          visible: false
+        });
+  
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
     more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
     basemap: "topo-vector"
+    layers: [bondlayer]
   });
+  
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene div created in step 5
     map: map,  // Reference to the map object created before the scene
@@ -36,5 +48,8 @@ require([
 </head>
 <body>
   <div id="viewDiv"></div>
+  <span id="layerToggle">
+    <input type="checkbox" id="streetsLayer" checked> 2017 Bond Projects
+  </span>
 </body>
 </html>

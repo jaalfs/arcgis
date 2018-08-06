@@ -49,11 +49,7 @@ require([
    * take care of renderering the layers
    *****************************************************************/
   view.on("layerview-create", function(event) {
-     if (event.layer.id === "ny-housing") {
-        // Explore the properties of the population layer's layer view here
-        console.log("LayerView for male population created!", event.layerView);
-     }
-     if (event.layer.id === "streets") {
+     if (event.layer.id === "bondprojects") {
         // Explore the properties of the transportation layer's layer view here
         // Explore the properties of the transportation layer's layer view here
         console.log("LayerView for streets created!", event.layerView);
@@ -63,8 +59,8 @@ require([
 </head>
 <body>
   <div id="viewDiv"></div>
-  //<span id="layerToggle">
-  //  <input type="checkbox" id="streetsLayer" checked> 2017 Bond Projects
-  //</span>
+  <span id="layerToggle">
+    <input type="checkbox" id="streetsLayer" checked> 2017 Bond Projects
+  </span>
 </body>
 </html>

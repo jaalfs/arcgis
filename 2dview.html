@@ -39,11 +39,12 @@
 require([
   "esri/Map",
   "esri/views/MapView",
+  "esri/Graphic",
   "esri/layers/FeatureLayer",  // Require the FeatureLayer module
   "dojo/dom", //require dojo/dom for getting the DOM element
   "dojo/on",  //require dojo/on for listening to events on the DOM
   "dojo/domReady!"
-], function(Map, MapView, FeatureLayer, dom, on){
+], function(Map, MapView, Graphic, FeatureLayer, dom, on){
   
   // Create 2017 Bond Layer
   // Using CoSA Open Data 

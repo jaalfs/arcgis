@@ -54,7 +54,7 @@ require([
     symbol: {
       type: "simple-line",  // autocasts as new SimpleLineSymbol()
       color: "blue",
-      width: 4
+      width: 2
     }
   };
   
@@ -63,11 +63,25 @@ require([
   var bondLayer = new FeatureLayer({
           url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
           outfields: ["*"],
+          popupTemplate: template
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
           visible: false,
           renderer: bondlinerenderer
   });
+  
+  var template = {  // autocasts as new PopupTemplate()
+    title: "CoSA Bond Projects",
+    content: [{
+      type: "fields",
+      fieldInfos: [{
+        fieldName: "ProjectName",
+        label: "Project Name: %",
+        visible: true
+      }]
+    }]
+  };
+    
   
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector

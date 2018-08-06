@@ -18,7 +18,7 @@
 require([
   "esri/Map",
   "esri/views/MapView",
-  "esri/layers/FeatureLayer",  // Require the TileLayer module
+  "esri/layers/FeatureLayer",  // Require the FeatureLayer module
   "dojo/dom", //require dojo/dom for getting the DOM element
   "dojo/on",  //require dojo/on for listening to events on the DOM
   "dojo/domReady!"
@@ -29,7 +29,7 @@ require([
           url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Points_2017/FeatureServer",
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
-  //        visible: false
+          visible: false
   });
   
   map.layers.add(bondlayer);

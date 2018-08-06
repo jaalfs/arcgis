@@ -32,13 +32,13 @@ require([
           visible: true
   });
   
-  map.layers.add(bondlayer);
-  
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
     more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
     basemap: "topo-vector"
   });
+  
+  map.layers.add(bondlayer);
   
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene div created in step 5

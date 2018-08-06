@@ -39,12 +39,21 @@
 require([
   "esri/Map",
   "esri/views/MapView",
-  "esri/Graphic",
+  "esri/Color",
+  "esri/symbols/SimpleLineSymbol",
+  "esri/symbols/SimpleMarkerSymbol",
+  "esri/renderers/SimpleRenderer",
   "esri/layers/FeatureLayer",  // Require the FeatureLayer module
   "dojo/dom", //require dojo/dom for getting the DOM element
   "dojo/on",  //require dojo/on for listening to events on the DOM
   "dojo/domReady!"
-], function(Map, MapView, Graphic, FeatureLayer, dom, on){
+], function(Map, MapView, Color, SimpleLineSymbol, SimpleMarkerSymbol, SimpleRenderer, FeatureLayer, dom, on){
+  
+  var blueline = new SimpleLineSymbol({
+  type: "simple-line",  // autocasts as new SimpleLineSymbol()
+  color: "blue",
+  width: "32px",
+  });
   
   // Create 2017 Bond Layer
   // Using CoSA Open Data 
@@ -54,7 +63,9 @@ require([
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
           visible: false,
-          renderer: lineSymbol
+          renderer: new SimpleRenderer({
+            line: blueline
+          {)  
   });
   
   var map = new Map({
@@ -71,12 +82,6 @@ require([
     zoom: 12,  // Sets zoom level based on level of detail (LOD)
     center: [-98.49, 29.42]  // Sets center point of view using longitude,latitude
   });
-  
-  var lineSymbol = {
-    type: "simple-line",  // autocasts as new SimpleLineSymbol()
-    color: [226, 119, 40],  // RGB color values as an array
-    width: 4
-  };
   
   /*****************************************************************
    * The map handles the layers' data while the view and layer views

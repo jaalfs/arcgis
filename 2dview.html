@@ -70,6 +70,12 @@ require([
     center: [-98.49, 29.42]  // Sets center point of view using longitude,latitude
   });
   
+  var lineSymbol = {
+    type: "simple-line",  // autocasts as new SimpleLineSymbol()
+    color: [226, 119, 40],  // RGB color values as an array
+    width: 4
+  };
+  
   /*****************************************************************
    * The map handles the layers' data while the view and layer views
    * take care of renderering the layers

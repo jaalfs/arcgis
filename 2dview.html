@@ -49,10 +49,13 @@ require([
   "dojo/domReady!"
 ], function(Map, MapView, Color, SimpleLineSymbol, SimpleMarkerSymbol, SimpleRenderer, FeatureLayer, dom, on){
   
-  var blueline = {
-  type: "simple-line",  // autocasts as new SimpleLineSymbol()
-  color: "blue",
-  width: 4
+  var bondlinerenderer = {
+    type: "simple",
+    symbol: {
+      type: "simple-line",  // autocasts as new SimpleLineSymbol()
+      color: "blue",
+      width: 4
+    }
   };
   
   // Create 2017 Bond Layer
@@ -63,7 +66,7 @@ require([
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
           visible: false,
-          symbol: blueline
+          renderer: bondlinerenderer
   });
   
   var map = new Map({

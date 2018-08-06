@@ -43,6 +43,21 @@ require([
     zoom: 12,  // Sets zoom level based on level of detail (LOD)
     center: [-98.49, 29.42]  // Sets center point of view using longitude,latitude
   });
+  
+  /*****************************************************************
+   * The map handles the layers' data while the view and layer views
+   * take care of renderering the layers
+   *****************************************************************/
+  view.on("layerview-create", function(event) {
+     if (event.layer.id === "ny-housing") {
+        // Explore the properties of the population layer's layer view here
+        console.log("LayerView for male population created!", event.layerView);
+     }
+     if (event.layer.id === "streets") {
+        // Explore the properties of the transportation layer's layer view here
+        // Explore the properties of the transportation layer's layer view here
+        console.log("LayerView for streets created!", event.layerView);
+     }
 });
 </script>
 </head>

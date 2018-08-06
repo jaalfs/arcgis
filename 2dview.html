@@ -19,18 +19,20 @@ require([
   "esri/Map",
   "esri/views/MapView",
   "esri/layers/FeatureLayer",  // Require the TileLayer module
+  "dojo/dom" //require dojo/dom for getting the DOM element
+  "dojo/on"  //require dojo/on for listening to events on the DOM
   "dojo/domReady!"
-], function(Map, MapView, FeatureLayer){
+], function(Map, MapView, FeatureLayer dom, on){
   
   // Create 2017 Bond Layer
   var bondLayer = new FeatureLayer({
           url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Points_2017/FeatureServer",
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
-          visible: false
-        });
+  //        visible: false
+  });
   
-  map.add(bondlayer);
+  map.layers.add(bondlayer);
   
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
@@ -53,7 +55,7 @@ require([
      if (event.layer.id === "bondprojects") {
         // Explore the properties of the transportation layer's layer view here
         // Explore the properties of the transportation layer's layer view here
-        console.log("LayerView for streets created!", event.layerView);
+        console.log("LayerView for bonds created!", event.layerView);
      }
   });
   
@@ -65,9 +67,9 @@ require([
          * the layer is still part of the map, which means you can access
          * its properties and perform analysis even though it isn't visible.
          *******************************************************************/
-        on(bondLayerToggle, "change", function() {
-          bond.visible = bondLayerToggle.checked;
-        });
+  on(bondLayerToggle, "change", function() {
+     bondlayer.visible = bondLayerToggle.checked;
+  });
 });
 </script>
 </head>

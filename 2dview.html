@@ -54,13 +54,25 @@ require([
         // Explore the properties of the transportation layer's layer view here
         console.log("LayerView for streets created!", event.layerView);
      }
+    
+  var bondLayerToggle = dom.byId("bondLayer");
+
+        /*****************************************************************
+         * The visible property on the layer can be used to toggle the
+         * layer's visibility in the view. When the visibility is turned off
+         * the layer is still part of the map, which means you can access
+         * its properties and perform analysis even though it isn't visible.
+         *******************************************************************/
+        on(bondLayerToggle, "change", function() {
+          bond.visible = bondLayerToggle.checked;
+        });
 });
 </script>
 </head>
 <body>
   <div id="viewDiv"></div>
   <span id="layerToggle">
-    <input type="checkbox" id="streetsLayer" checked> 2017 Bond Projects
+    <input type="checkbox" id="bondLayer"> 2017 Bond Projects
   </span>
 </body>
 </html>

@@ -93,6 +93,8 @@ require([
   
   map.layers.add(bondLayer);
   
+  var featlayer = map.layers.getItemAt(0);
+  
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene div created in step 5
     map: map,  // Reference to the map object created before the scene
@@ -103,7 +105,7 @@ require([
   var legend = new Legend({
     view: view,
     layerInfos: [{
-      layer: featurelayer,
+      layer: featlayer,
       title: "Legend"
     }]
   });
@@ -114,7 +116,6 @@ require([
    *****************************************************************/
   view.on("layerview-create", function(event) {
      if (event.layer.id === "bondprojects") {
-        // Explore the properties of the transportation layer's layer view here
         // Explore the properties of the transportation layer's layer view here
         console.log("LayerView for bonds created!", event.layerView);
      }

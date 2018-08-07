@@ -85,14 +85,6 @@ require([
           renderer: bondlinerenderer
   });
   
-  var legend = new Legend({
-    view: view,
-    layerInfos: [{
-      layer: bondlayer,
-      title: "Legend"
-    }]
-  });
-  
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
     more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
@@ -106,6 +98,14 @@ require([
     map: map,  // Reference to the map object created before the scene
     zoom: 12,  // Sets zoom level based on level of detail (LOD)
     center: [-98.49, 29.42]  // Sets center point of view using longitude,latitude
+  });
+  
+  var legend = new Legend({
+    view: view,
+    layerInfos: [{
+      layer: bondprojects,
+      title: "Legend"
+    }]
   });
   
   /*****************************************************************

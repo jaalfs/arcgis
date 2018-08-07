@@ -77,7 +77,7 @@ require([
   // Using CoSA Open Data 
   var bondLayer = new FeatureLayer({
           url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
-          outfields: ["*"],
+          outfields: ["ProjectName"],
           popupTemplate: template,
           // This property can be used to uniquely identify the layer
           id: "bondsprojects",
@@ -93,7 +93,7 @@ require([
   
   map.layers.add(bondLayer);
   
-  var featlayer = map.layers.getItemAt(1);
+  var featlayer = map.layers.getItemAt(0);
   
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene 

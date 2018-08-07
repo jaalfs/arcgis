@@ -96,14 +96,15 @@ require([
   var featlayer = map.layers.getItemAt(0);
   
   var view = new MapView({
-    container: "viewDiv",  // Reference to the scene div created in step 5
+    container: "viewDiv",  // Reference to the scene 
     map: map,  // Reference to the map object created before the scene
     zoom: 12,  // Sets zoom level based on level of detail (LOD)
     center: [-98.49, 29.42]  // Sets center point of view using longitude,latitude
   });
   
   var legend = new Legend({
-    view: view,
+    //view: view,
+    map: map;
     layerInfos: [{
       layer: featlayer,
       title: "Legend"

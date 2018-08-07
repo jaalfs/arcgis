@@ -43,11 +43,12 @@ require([
   "esri/symbols/SimpleLineSymbol",
   "esri/symbols/SimpleMarkerSymbol",
   "esri/renderers/SimpleRenderer",
+  "esri/widgets/Legend",
   "esri/layers/FeatureLayer",  // Require the FeatureLayer module
   "dojo/dom", //require dojo/dom for getting the DOM element
   "dojo/on",  //require dojo/on for listening to events on the DOM
   "dojo/domReady!"
-], function(Map, MapView, Color, SimpleLineSymbol, SimpleMarkerSymbol, SimpleRenderer, FeatureLayer, dom, on){
+], function(Map, MapView, Color, SimpleLineSymbol, SimpleMarkerSymbol, SimpleRenderer, Legend, FeatureLayer, dom, on){
   
   var bondlinerenderer = {
     type: "simple",
@@ -84,6 +85,14 @@ require([
           renderer: bondlinerenderer
   });
   
+  var legend = new Legend({
+    view: view,
+    layerInfos: [{
+      layer: bondlayer,
+      title: "Legend"
+    }]
+  });
+  
   var map = new Map({
     /*-- basemap types: streets, streets-vector, topo-vector
     more at https://developers.arcgis.com/javascript/latest/api-reference/esri-Map.html#basemap*/
@@ -110,6 +119,8 @@ require([
         console.log("LayerView for bonds created!", event.layerView);
      }
   });
+  
+  view.ui.add(legend, "bottom-right");
   
   var bondLayerToggle = dom.byId("bondLayer");
 

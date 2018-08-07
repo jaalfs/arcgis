@@ -103,7 +103,7 @@ require([
   var legend = new Legend({
     view: view,
     layerInfos: [{
-      layer: bondprojects,
+      layer: bondlayer,
       title: "Legend"
     }]
   });
@@ -120,7 +120,7 @@ require([
      }
   });
   
-  //view.ui.add(legend, "bottom-right");
+  view.ui.add(legend, "bottom-right");
   
   var bondLayerToggle = dom.byId("bondLayer");
 

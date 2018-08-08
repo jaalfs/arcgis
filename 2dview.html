@@ -78,8 +78,11 @@ require([
     // All features with value of "North" will be blue
     value: "1",
     symbol: {
-      type: "simple-line",  // autocasts as new SimpleFillSymbol()
-      color: '#4e6082'
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "none",
+      outline: {  // autocasts as new SimpleLineSymbol()
+      color: '#4e6182',
+      width: 1
     }
   }, {
     // All features with value of "East" will be green

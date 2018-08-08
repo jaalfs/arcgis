@@ -60,16 +60,92 @@ require([
     label: "2017 CoSA Bond Projects"
   };
 
-  var CCDlinerenderer = {
-    type: "simple",
-    symbol: {
-      type: "simple-line",  // autocasts as new SimpleLineSymbol()
-      color: '#4e6582',
-      width: 2,
-    },
-    label: "2018 CoSA Council Districts"
-  };
+  //var CCDlinerenderer = {
+  //  type: "simple",
+  //  symbol: {
+  //    type: "simple-line",  // autocasts as new SimpleLineSymbol()
+  //    color: '#4e6582',
+  //    width: 2,
+  ///  },
+  //  label: "2018 CoSA Council Districts"
+  //};
 
+  var CCDlinerenderer = {
+  type: "unique-value",  // autocasts as new UniqueValueRenderer()
+  field: "District",
+  defaultSymbol: { type: "simple-line" },  // autocasts as new SimpleFillSymbol()
+  uniqueValueInfos: [{
+    // All features with value of "North" will be blue
+    value: "1",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: '#4e6082'
+    }
+  }, {
+    // All features with value of "East" will be green
+    value: "2",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: '#4e6182'
+    }
+  }, {
+    // All features with value of "South" will be red
+    value: "3",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: '#4e6282'
+    }
+  }, {
+    // All features with value of "West" will be yellow
+    value: "4",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "yellow"
+    } 
+  }, {
+    // All features with value of "North" will be blue
+    value: "5",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "blue"
+    }
+  }, {
+    // All features with value of "East" will be green
+    value: "6",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "green"
+    }
+  }, {
+    // All features with value of "South" will be red
+    value: "7",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "red"
+    }
+  }, {
+    // All features with value of "West" will be yellow
+    value: "8",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "yellow"
+    }
+  }, {
+    // All features with value of "South" will be red
+    value: "9",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "red"
+    }
+  }, {
+    // All features with value of "West" will be yellow
+    value: "10",
+    symbol: {
+      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      color: "yellow"
+    }
+  }]
+};
   
   var template = {  // autocasts as new PopupTemplate()
     title: "2017 CoSA Bond Projects",

@@ -60,6 +60,18 @@ require([
     },
     label: "2017 CoSA Bond Projects"
   };
+
+  var CCDlinerenderer = {
+    type: "simple",
+    symbol: {
+      type: "simple-line",  // autocasts as new SimpleLineSymbol()
+      color: '#006000',
+      //color: "blue",
+      width: 2,
+    },
+    label: "201 CoSA Council Districts"
+  };
+
   
   var template = {  // autocasts as new PopupTemplate()
     title: "2017 CoSA Bond Projects",
@@ -74,11 +86,29 @@ require([
     }]
   };
   
+    var CCDtemplate = {  // autocasts as new PopupTemplate()
+    title: "2018 CoSA Council Districts",
+    content: [{
+      type: "fields",
+      fieldInfos: [{
+        fieldName: "District",
+        label: "District #:",
+        visible: true
+      },
+      {
+        fieldName: "Name",
+        label: "Name:",
+        visible: true
+      }
+      ]
+    }]
+  };
+  
   // Create 2017 Bond Layer
   // Using CoSA Open Data 
   var bondLayer = new FeatureLayer({
-          //url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
-          url: "https://gis.sara-tx.org/ags1/rest/services/FW_COSA/cosa_council_districts_boundaries/MapServer/0",
+          url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
+          //url: "https://gis.sara-tx.org/ags1/rest/services/FW_COSA/cosa_council_districts_boundaries/MapServer/0",
           title: "2017 CoSA Bond Projects",
           outfields: ["ProjectName"],
           popupTemplate: template,
@@ -86,6 +116,20 @@ require([
           id: "bondsprojects",
           visible: false,
           renderer: bondlinerenderer
+  });
+  
+  // Create 2017 CoSA Council Districts Layer
+  // Using SARA Open Data 
+  var CCDLayer = new FeatureLayer({
+          //url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
+          url: "https://gis.sara-tx.org/ags1/rest/services/FW_COSA/cosa_council_districts_boundaries/MapServer/0",
+          title: "2018 CoSA Council Districts",
+          outfields: ["District, Name, SqMiles, website"],
+          popupTemplate: CCDtemplate,
+          // This property can be used to uniquely identify the layer
+          id: "CoSACouncilDistricts",
+          visible: false,
+          renderer: CCDlinerenderer
   });
   
   var map = new Map({
@@ -127,6 +171,7 @@ require([
   view.ui.add(legend, "bottom-right");
   
   var bondLayerToggle = dom.byId("bondLayer");
+  var CCDLayerToggle = dom.byId("CCDLayer");
 
         /*****************************************************************
          * The visible property on the layer can be used to toggle the
@@ -137,6 +182,11 @@ require([
   on(bondLayerToggle, "change", function() {
      bondLayer.visible = bondLayerToggle.checked;
   });
+  
+  on(CCDLayerToggle, "change", function() {
+     CCDLayer.visible = CCDLayerToggle.checked;
+  });
+  
 });
 </script>
 </head>
@@ -144,6 +194,7 @@ require([
   <div id="viewDiv"></div>
   <span id="layerToggle">
     <input type="checkbox" id="bondLayer"> 2017 CoSA Bond Projects
+    <input type="checkbox" id="CCDLayer"> 2018 CoSA Council Districts
   </span>
 </body>
 </html>

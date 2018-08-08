@@ -149,9 +149,13 @@ require([
   var legend = new Legend({
     view: view,
     layerInfos: [{
-      layer: map.layers.getItemAt(0),
-      layer: map.layers.getItemAt(1),
       title: "Legend"
+    },
+    {
+      layer: map.layers.getItemAt(0)
+    },
+    {
+      layer: map.layers.getItemAt(1)
     }]
   //},"legendDiv");
   });

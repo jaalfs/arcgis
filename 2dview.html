@@ -77,7 +77,8 @@ require([
   // Create 2017 Bond Layer
   // Using CoSA Open Data 
   var bondLayer = new FeatureLayer({
-          url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
+          //url: "https://services.arcgis.com/g1fRTDLeMgspWrYp/arcgis/rest/services/Bond_Project_Lines_2017/FeatureServer/0/query?outFields=*&where=1%3D1",
+          url: "https://gis.sara-tx.org/ags1/rest/services/FW_COSA/cosa_council_districts_boundaries/MapServer/0"
           title: "2017 CoSA Bond Projects",
           outfields: ["ProjectName"],
           popupTemplate: template,

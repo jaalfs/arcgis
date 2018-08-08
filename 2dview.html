@@ -137,7 +137,7 @@ require([
   map.addMany([bondLayer, CCDLayer]);
     
   //var featlayer = map.layers.getItemAt(1);
-  var featlayer = map.layers;
+  //var featlayer = map.layers;
   
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene 
@@ -149,8 +149,11 @@ require([
   var legend = new Legend({
     view: view,
     layerInfos: [{
-      layer: featlayer,
+      layer: bondlayer,
       title: "Legend"
+    },
+    {
+      layer: CCDlayer,
     }]
   //},"legendDiv");
   });

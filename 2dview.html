@@ -79,81 +79,72 @@ require([
     value: "1",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: [255, 127, 127, 0.23],
-      outline: {  // autocasts as new SimpleLineSymbol()
-        color: '#4e6182',
-        width: 1
-      }  
+      color: [255, 127, 127, 0.23]
     }
   }, {
     // All features with value of "East" will be green
     value: "2",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: '#4e6182'
+      color: [255, 167, 127, 0.23]
     }
   }, {
     // All features with value of "South" will be red
     value: "3",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: '#4e6282'
+      color: [255, 211, 127, 0.23]
     }
   }, {
     // All features with value of "West" will be yellow
     value: "4",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "yellow"
+      color: [255, 255, 115, 0.23]
     } 
   }, {
     // All features with value of "North" will be blue
     value: "5",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "blue"
+      color: [209, 255, 115, 0.23]
     }
   }, {
     // All features with value of "East" will be green
     value: "6",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "green"
+      color: [163, 255, 115, 0.23]
     }
   }, {
     // All features with value of "South" will be red
     value: "7",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "red"
+      color: [115, 255, 223, 0.23]
     }
   }, {
     // All features with value of "West" will be yellow
     value: "8",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "yellow"
+      color: [115, 223, 255, 0.23]
     }
   }, {
     // All features with value of "South" will be red
     value: "9",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "red",
-      opacity: 0.50
-    }
+      color: [115, 178, 255, 0.23]
+   }
   }, {
     // All features with value of "West" will be yellow
     value: "10",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: "yellow"
+      color: [223, 115, 255, 0.23]
     }
   }],
-  visualVariables: [{
-    type: "opacity",
-    opacity: 0.15
-  }]
 };
   
   var template = {  // autocasts as new PopupTemplate()

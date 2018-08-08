@@ -210,7 +210,7 @@ require([
     basemap: "topo-vector"
   });
   
-  map.addMany([bondLayer, CCDLayer]);
+  map.addMany([CCDLayer, bondLayer]);
     
   //var featlayer = map.layers.getItemAt(1);
   var featlayer = map.layers;
@@ -227,10 +227,6 @@ require([
     layerInfos: [{
       title: "Legend",
       layer: map.layers.getItemAt(0)
-    },
-    {
-      title: "Legend",
-      layer: map.layers.getItemAt(1)
     }]
   //},"legendDiv");
   });

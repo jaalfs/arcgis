@@ -74,6 +74,7 @@ require([
   type: "unique-value",  // autocasts as new UniqueValueRenderer()
   field: "District",
   defaultSymbol: { type: "simple-line" },  // autocasts as new SimpleFillSymbol()
+  opacity: 0.75,
   uniqueValueInfos: [{
     // All features with value of "North" will be blue
     value: "1",
@@ -136,7 +137,7 @@ require([
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
       color: "red",
-      opacity: 095
+      opacity: 0.95
     }
   }, {
     // All features with value of "West" will be yellow

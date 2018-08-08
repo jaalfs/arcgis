@@ -136,7 +136,8 @@ require([
   
   map.addMany([bondLayer, CCDLayer]);
     
-  var featlayer = map.layers.getItemAt(1);
+  //var featlayer = map.layers.getItemAt(1);
+  var featlayer = map.layers;
   
   var view = new MapView({
     container: "viewDiv",  // Reference to the scene 

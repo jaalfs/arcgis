@@ -246,6 +246,14 @@ require([
      }
   });
   
+  var layerList = new LayerList({
+    view: view
+  });
+
+  view.ui.add(layerList, {
+    position: "top-left"
+  });
+  
   view.ui.add(legend, "bottom-right");
   
   var bondLayerToggle = dom.byId("bondLayer");

@@ -139,6 +139,7 @@ require([
   });
   
   map.layers.add(bondLayer);
+  map.layers.add(CCDLayer);
   
   var featlayer = map.layers.getItemAt(0);
   
@@ -165,6 +166,9 @@ require([
      if (event.layer.id === "bondprojects") {
         // Explore the properties of the transportation layer's layer view here
         console.log("LayerView for bonds created!", event.layerView);
+     if (event.layer.id === "CoSACouncilDistricts") {
+        // Explore the properties of the transportation layer's layer view here
+        console.log("LayerView for CoSA Council Districts created!", event.layerView);
      }
   });
   

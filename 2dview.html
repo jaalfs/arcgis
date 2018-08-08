@@ -73,13 +73,13 @@ require([
   var CCDlinerenderer = {
   type: "unique-value",  // autocasts as new UniqueValueRenderer()
   field: "District",
-  defaultSymbol: { type: "simple-line" },  // autocasts as new SimpleLineSymbol()
+  defaultSymbol: { type: "simple-fill" },  // autocasts as new SimpleLineSymbol()
   uniqueValueInfos: [{
     // All features with value of "North" will be blue
     value: "1",
     symbol: {
       type: "simple-fill",  // autocasts as new SimpleFillSymbol()
-      color: '255, 127, 127, 0.23',
+      color: [255, 127, 127, 0.23],
       outline: {  // autocasts as new SimpleLineSymbol()
         color: '#4e6182',
         width: 1

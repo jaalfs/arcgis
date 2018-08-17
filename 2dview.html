@@ -249,6 +249,7 @@ require([
      }
   });
   
+  /* uncomment to add layerlist
   var layerList = new LayerList({
     view: view
   });
@@ -256,6 +257,7 @@ require([
   view.ui.add(layerList, {
     position: "top-left"
   });
+  */
   
   var scaleBar = new ScaleBar({
     view: view
@@ -270,12 +272,12 @@ require([
   var bondLayerToggle = dom.byId("bondLayer");
   var CCDLayerToggle = dom.byId("CCDLayer");
 
-        /*****************************************************************
-         * The visible property on the layer can be used to toggle the
-         * layer's visibility in the view. When the visibility is turned off
-         * the layer is still part of the map, which means you can access
-         * its properties and perform analysis even though it isn't visible.
-         *******************************************************************/
+  /*****************************************************************
+   * The visible property on the layer can be used to toggle the
+   * layer's visibility in the view. When the visibility is turned off
+   * the layer is still part of the map, which means you can access
+   * its properties and perform analysis even though it isn't visible.
+   *******************************************************************/
   on(bondLayerToggle, "change", function() {
      bondLayer.visible = bondLayerToggle.checked;
   });

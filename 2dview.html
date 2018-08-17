@@ -24,6 +24,9 @@
       padding: 10px;
       opacity: 0.75;
     }
+  #greentext {
+      color: '#008000'
+  }
 </style>
 <link rel="stylesheet" href="https://js.arcgis.com/4.8/esri/css/main.css">
 <!Render FeatureLayers with WebGL for 2D MapViews>
@@ -292,7 +295,7 @@ require([
 <body>
   <div id="viewDiv"></div>
   <span id="layerToggle">
-    <input type="checkbox" id="bondLayer"> 2017 CoSA Bond Projects<br />
+    <input type="checkbox" id="bondLayer"> <span id=greentext> 2017 CoSA Bond Projects</span><br />
     <input type="checkbox" id="CCDLayer"> 2018 CoSA Council Districts
   </span>
 </body>

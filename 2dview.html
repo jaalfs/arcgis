@@ -54,6 +54,7 @@ require([
   "dojo/domReady!"
 ], function(Map, MapView, Color, SimpleLineSymbol, SimpleMarkerSymbol, SimpleRenderer, Legend, LayerList, ScaleBar, FeatureLayer, dom, on){
   
+  // define renderer for bondLayer
   var bondlinerenderer = {
     type: "simple",
     symbol: {
@@ -64,93 +65,85 @@ require([
     label: "2017 CoSA Bond Projects"
   };
 
-  //var CCDlinerenderer = {
-  //  type: "simple",
-  //  symbol: {
-  //    type: "simple-line",  // autocasts as new SimpleLineSymbol()
-  //    color: '#4e6582',
-  //    width: 2,
-  ///  },
-  //  label: "2018 CoSA Council Districts"
-  //};
-
+  // define renderer for CCDLayer
   var CCDlinerenderer = {
   type: "unique-value",  // autocasts as new UniqueValueRenderer()
   field: "District",
   defaultSymbol: { type: "simple-fill" },  // autocasts as new SimpleLineSymbol()
   uniqueValueInfos: [{
-    // All features with value of "North" will be blue
+    // feature 1
     value: "1",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [255, 127, 127, 0.23]
     }
   }, {
-    // All features with value of "East" will be green
+    // feature 2
     value: "2",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [255, 167, 127, 0.23]
     }
   }, {
-    // All features with value of "South" will be red
+    // feature 3
     value: "3",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [255, 211, 127, 0.23]
     }
   }, {
-    // All features with value of "West" will be yellow
+    // feature 4
     value: "4",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [255, 255, 115, 0.23]
     } 
   }, {
-    // All features with value of "North" will be blue
+    // feature 5
     value: "5",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [209, 255, 115, 0.23]
     }
   }, {
-    // All features with value of "East" will be green
+    // feature 6
     value: "6",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [163, 255, 115, 0.23]
     }
   }, {
-    // All features with value of "South" will be red
+    // feature 7
     value: "7",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [115, 255, 223, 0.23]
     }
   }, {
-    // All features with value of "West" will be yellow
+    // feature 8
     value: "8",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [115, 223, 255, 0.23]
     }
   }, {
-    // All features with value of "South" will be red
+    // feature 9
     value: "9",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [115, 178, 255, 0.23]
    }
   }, {
-    // All features with value of "West" will be yellow
+    // feature 10
     value: "10",
     symbol: {
-      type: "simple-fill",  // autocasts as new SimpleFillSymbol()
+      type: "simple-fill",
       color: [223, 115, 255, 0.23]
     }
   }],
 };
   
+  // popup template for bondLayer
   var template = {  // autocasts as new PopupTemplate()
     title: "2017 CoSA Bond Projects",
     content: [{
@@ -164,6 +157,7 @@ require([
     }]
   };
   
+    // popup template for CCDLayer 
     var CCDtemplate = {  // autocasts as new PopupTemplate()
     title: "2018 CoSA Council Districts",
     content: [{
@@ -260,6 +254,7 @@ require([
   });
   */
   
+  // add scalebar
   var scaleBar = new ScaleBar({
     view: view
   });
@@ -268,6 +263,7 @@ require([
     position: "bottom-left"
   });
   
+  // add legend
   view.ui.add(legend, "bottom-right");
   
   var bondLayerToggle = dom.byId("bondLayer");
